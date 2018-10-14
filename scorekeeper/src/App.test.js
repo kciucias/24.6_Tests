@@ -50,10 +50,13 @@ it('should remove a player', () => {
       score: 0,
     }
   ];
-  const onPlayerRemove = app.find(PlayersList).prop('onPlayerRemove');
-  onPlayerRemove(0);
   app.setState({ players });
+  const onPlayerRemove = app.find(PlayersList).prop('onPlayerRemove');
+  onPlayerRemove(0);  
   const playersAfterUpdate = app.state('players');
-  expect(playersAfterUpdate).toEqual({ players });
+  expect(playersAfterUpdate).toEqual([{
+      name: 'Antoś',
+      score: 0,
+  }]);
 });
 
